@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fruit Gacha</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Fruit Gacha</h1>
+    <p>Click this button to roll</p>
+    <button id="rollBtn">Roll</button>
+    <p id="result"></p>
+    <img id="rollImg" src="https://miro.medium.com/1*kwN_Y8GNf2ZB6sNQxngVyw@2x.jpeg" alt="Fruit" width="200">
+    <p>Click here to see the benefits <a href="https://www.myplate.gov/eat-healthy/fruits">link</a></p>
+
+    <script>
+        const prizes = [
+            { name: "Mango", img: "https://exoticfruitbox.com/wp-content/uploads/2015/10/mango.jpg" },
+            { name: "Watermelon", img: "https://weresmartworld.com/sites/default/files/styles/full_screen/public/2021-04/watermeloen_2.jpg?itok=CCYHLr5M" },
+            { name: "Banana", img: "https://img.freepik.com/free-vector/vector-ripe-yellow-banana-bunch-isolated-white-background_1284-45456.jpg?semt=ais_hybrid&w=740&q=80" },
+            { name: "Orange", img: "https://www.quanta.org/orange/orange.jpg" },
+            { name: "Apple", img: "https://www.collinsdictionary.com/images/full/apple_158989157.jpg" }
+        ];
+
+        const button = document.getElementById("rollBtn");
+        const result = document.getElementById("result");
+        const rollImg = document.getElementById("rollImg"); 
+
+        button.addEventListener("click", () => {
+            result.textContent = "Rolling... ";
+            rollImg.src = "https://miro.medium.com/1*kwN_Y8GNf2ZB6sNQxngVyw@2x.jpeg"; 
+
+            setTimeout(() => {
+                const randomIndex = Math.floor(Math.random() * prizes.length);
+                rollImg.src = prizes[randomIndex].img;
+                result.textContent = "You got: " + prizes[randomIndex].name; 
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
